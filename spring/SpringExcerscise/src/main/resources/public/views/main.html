@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Exrc</title>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap-rtl.min.css">
+  <style>
+  	#title {
+    color: rgb(123, 213, 98);
+    font-family: Tahoma;
+    margin-top: 2%;
+    border:  2px;
+    font-size: 80px;
+    display: inline;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(123, 213, 98);
+    background-image: background: -webkit-linear-gradient(rgba(123, 213, 98, 0.97), black);
+    background-image: background: -o-linear-gradient(rgba(123, 213, 98, 0.97), black);
+    background-image: background: linear-gradient(rgba(123, 213, 98, 0.97), black);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow: 2px 2px 10px  rgba(123, 213, 98, 0.58) ;
+  }
+  </style>
+  <script type="text/javascript" src="/javascripts/jquery-1.9.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      
+      $("#btnQ4").click(function() {
+        $.ajax({
+          type: "GET",
+          async: true,
+          url: "/Songs",
+          dataType: "json",
+          success: function(data) {
+            $("#answerQ4").html();
+            var div = "";
+            for (var i = 0; i < data.length; i++) {
+                div += "<div class='row'>" + 
+                       "<div class='panel panel-default col-md-4 col-md-offset-4'><div class='panel-body'>" +
+                       "<div class='row'><div class='col-md-offset-4'>שם :" + data[i].name + "</div></div>" + 
+                       "<div class='row'><div class='col-md-offset-4'>זמר : " + data[i].singer + "</div></div>" + 
+                       "<div class='row'><div class='col-md-offset-4'>אורך : " + data[i].duration + "</div></div>" + 
+                       "<div class='row'><div class='col-md-offset-4'>צפיות : " + data[i].views + 
+                       "</div></div></div></div></div><br>";
+            }
+            
+            $("#answerQ4").html(div);
+          },
+          error: function() {
+            alert("Error occured");
+          }
+        });
+      });
+      
+      $("#btnQ5").click(function() {
+        $.ajax({
+          type: "GET",
+          async: true,
+          url: "/Songs/" + $("#search").val(),
+          dataType: "json",
+          success: function(data) {
+            $("#answer").html();
+            var div = "";
+            div += "<div class='row'>" + 
+                   "<div class='panel panel-default col-md-4 col-md-offset-4'><div class='panel-body'>" +
+                   "<div class='row'><div class='col-md-offset-4'>שם :" + data.name + "</div></div>" + 
+                   "<div class='row'><div class='col-md-offset-4'>זמר : " + data.singer + "</div></div>" + 
+                   "<div class='row'><div class='col-md-offset-4'>אורך : " + data.duration + "</div></div>" + 
+                   "<div class='row'><div class='col-md-offset-4'>צפיות : " + data.views + 
+                   "</div></div></div></div></div><br>";
+            
+            $("#answerQ5").html(div);
+          },
+          error: function() {
+            alert("Error occured");
+          }
+        });
+      });
+      
+      $("#btnQ6").click(function() {    
+        $.ajax({
+          type: "POST",
+          async: true,
+          url: "/Songs",
+          contentType: 'application/json',
+          data: JSON.stringify({ "name" : $("#name").val(),
+                                 "singer" : $("#singer").val(),
+                                 "duration" : $("#duration").val(),
+                                 "views" : $("#views").val() }),
+          success: function() {
+            $("#answerQ6").html("<div style='color:red'>השיר התווסף בהצלחה!<div>");
+          },
+          error: function() {
+            alert("Error occured");
+          }
+        });
+      });
+      
+      $("#btnQ7").click(function() {
+        $.ajax({
+          type: "PUT",
+          async: true,
+          url: "/Songs/" + $("#name").val(),
+          contentType: 'application/json',
+          data: JSON.stringify({ "name" : $("#name").val(),
+                                 "singer" : $("#singer").val(),
+                                 "duration" : $("#duration").val(),
+                                 "views" : $("#views").val() }),
+          success: function() {
+            $("#answerQ7").html("<div style='color:red'>השיר התעדכן בהצלחה!<div>");
+          },
+          error: function() {
+            alert("Error occured");
+          }
+        });
+      });
+      
+      $("#btnQ8").click(function() {
+        $.ajax({
+          type: "DELETE",
+          async: true,
+          url: "/Songs/" + $("#deleteName").val(),
+          success: function() {
+            $("#answerQ8").html("<div style='color:red'>השיר נמחק בהצלחה!<div>");
+          },
+          error: function() {
+            alert("Error occured");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+   <div class="row">
+     <div class="col-md-5 col-md-offset-4">
+       <span id="title">Spring Exrc</span>
+     </div>
+   </div>
+    <br>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-5">
+          <button id="btnQ4" class="btn btn-success">סיימתם שאלה 3? לחצו כאן!</button>
+        </div>
+      </div>
+      <br>
+      <div id="answerQ4">
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div>
+        <div class="row">
+          <input type="text" class="form-control col-md-4 col-md-offset-4" id="search" placeholder="שם">
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-5">
+            <button id="btnQ5" class="btn btn-success">סיימתם שאלה 4? לחצו כאן!</button>
+          </div>
+        </div>
+        <div id="answerQ5"> 
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div>
+        <div class="row">
+          <div>
+            <span><input type="text" id="name" class="form-control col-md-4 col-md-offset-4" placeholder="שם"></span>
+          </div>
+        </div>
+        <div class="row">
+          <span><input type="text" id="singer" class="form-control col-md-4 col-md-offset-4" placeholder="זמר"></span>
+        </div>
+        <div class="row">
+          <span><input type="text" id="duration" class="form-control col-md-4 col-md-offset-4" placeholder="אורך"></span>
+        </div>
+        <div class="row">
+          <span><input type="number" min="0" id="views" class="form-control col-md-4 col-md-offset-4" placeholder="צפיות"></span>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-4">
+            <button id="btnQ6" class="btn btn-success">סיימתם שאלה 5? לחצו כאן!</button>
+            <button id="btnQ7" class="btn btn-success">סיימתם שאלה 6? לחצו כאן!</button>
+          </div>
+        </div>
+        <div class="row">
+          <div id="answerQ6" class="col-md-2 col-md-offset-4">
+          </div>
+          <div id="answerQ7" class="col-md-2">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <div>
+        <div class="row">
+          <div>
+            <span><input type="text" id="deleteName" class="form-control col-md-4 col-md-offset-4" placeholder="שם"></span>
+          </div>
+        </div>
+        <div class="row">
+          <br>
+          <div class="col-md-6 col-md-offset-5">
+            <button id="btnQ8" class="btn btn-success">סיימתם שאלה 7? לחצו כאן!</button>
+          </div>
+        </div>
+        <div class="row">
+          <div id="answerQ8" class="col-md-2 col-md-offset-5">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+  </div>
+</body>
+</html>

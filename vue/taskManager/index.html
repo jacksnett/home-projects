@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<HTML>
+    <head>
+        <link href="index.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <div class="main">
+                <h1>משימות</h1>
+                <h3> לחץ על משימה על מנת לסמן אותה כגמורה </h3> 
+                <hr>
+                <form @submit.prevent>
+                    <input placeholder="מה צריך להיעשות?" v-on:keyup.enter="addToList()"
+                    v-model="currentInput">
+                </form>
+                
+                <div>
+                    <ul>
+                        <li v-for="task of tasks">
+                            <label class="a" v-if="!task.done"
+                            @click="markAsDone(task)
+                            ">{{task.taskName}}</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+                <div style="color: gray;">   
+                    <h2> משימות שהסתיימו : </h2>
+                    
+                    <div>
+                        <ul>
+                            <li v-for="task of tasks">
+                                <label v-if="task.done">{{task.taskName}}</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="index.js"></script>
+    </body>
+</HTML>

@@ -1,0 +1,332 @@
+HEAD header {}
+
+@font-face {
+  font-family: Assistant;
+  src: url(../fonts/Assistant-Regular.ttf);
+}
+
+body {
+    background: rgb(242, 243, 252);
+    font-family: "Assistant";
+}
+
+.logo {
+    background: url('../images/logo.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    width: 220px;
+    height: 110px;
+}
+
+#search {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 25px;
+    display: flex;
+}
+
+#search input {
+    width: 100%;
+    font-size: 2em;
+    padding: 3px;
+    box-shadow: inset 5px 5px 10px #CCCCCC;
+    border: 1px solid #666666;
+    border-left-width: 0;
+    border-radius: 0 3px 3px 0;
+    background: #EEEEEE;
+}
+
+#search * {
+    display: inline-block;
+    outline: none;
+}
+
+#search button {
+    width: 48px;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #666666;
+    border-right-width: 0;
+}
+
+#predata {
+    background: url('../images/notebook-top.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 70%;
+    height: 5em;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 3px 30px 15px #CCCCCC;
+}
+
+#data {
+    background: url('../images/notebook.png');
+    background-repeat: repeat;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 3px 6px 15px #CCCCCC;
+    padding-bottom: 2.5em;
+}
+
+#citizen-details {
+    margin-right: 10px;
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    font-size: 1.5em;
+}
+
+#citizen-details p {
+    display: inline-grid;
+    margin: 0 40px 0 40px;
+    text-align: right;
+}
+
+#citizen-details div p:first-child {
+    font-weight: bold;
+}
+
+#citizen-details div {
+    margin: 16px auto 0 auto;
+    text-align: -webkit-auto;
+    display: grid;
+}
+
+div {}
+
+#timeline > div {
+    width: 80%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+#more-data,
+#timeline {
+    background: none;
+    width: 85%;
+    margin: 2em auto 0 auto;
+}
+
+#more-data > div {
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid transparent;
+}
+
+#more-data > div:not(:last-child):hover {
+    background: rgba(153, 204, 255, 0.3);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+#more-data > div p {
+    display: inline-block;
+    margin: 10px auto;
+    font-size: 1.3em;
+}
+
+#more-data > div p:nth-child(1) {
+    width: 6%;
+}
+
+#more-data > div p:nth-child(2) {
+    width: 32%;
+}
+
+#more-data > div p:nth-child(3) {
+    width: 12%;
+}
+
+#more-data > div p:nth-child(4) {
+    width: 15%;
+}
+
+#more-data > div p:nth-child(5) {
+    width: 20%;
+}
+
+#more-data > div p:nth-child(6) {
+    width: 15%;
+}
+
+#more-data > div button {
+    margin: 3px auto;
+    display: block;
+}
+
+#change-more-data {
+    width: 28%;
+    margin: auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+#change-more-data div {
+    width: 50%;
+    text-align: center;
+    background: aliceblue;
+    background: #D63434;
+    height: 2.6em;
+    font-size: 1.5em;
+    padding-top: 0.5em;
+}
+
+.current-view {
+    background: trasnparent;
+    cursor: default;
+    color: white;
+}
+
+#change-more-data div:not(.current-view) {
+    background: transparent;
+    cursor: pointer;
+    color: #D63434;
+}
+
+.accepted {
+    color: green;
+}
+
+.rejected {
+    color: rgb(220, 0, 0);
+}
+
+.urgent p:first-child {
+    color: red;
+}
+
+aside {
+    position: fixed;
+    left: 10px;
+    top: 120px;
+    width: 12%;
+}
+
+aside div {
+    width: 95%;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 10px #CCCCCC;
+}
+
+aside div:first-child {
+    background: rgb(204, 153, 255);
+}
+
+aside div:last-child {
+    background: rgb(255, 80, 80);
+}
+
+aside div > p {
+    text-align: center;
+    margin: 0;
+}
+
+aside div > p:first-child {
+    font-size: 3em;
+    padding-top: 15px;
+}
+
+aside div > p:nth-child(2) {
+    font-size: 1.2em;
+    padding-bottom: 15px;
+}
+
+#requestModal div.modal-body {
+    background-color: rgba(236, 236, 236, 0.7);
+}
+
+.modal-header {
+    color: white;
+    background-color: #9e3c9e;
+}
+
+#requestModal select,
+#requestModal input[type=text] {
+    font-size: 1.2em;
+}
+
+#requestModal input[type=text] {
+    font-size: 1.1em;
+}
+
+#requestModal input[type=date] {
+    font-size: 1.3em;
+}
+
+#requestModal div p:first-child {
+    display: inline-block;
+}
+
+#ReqModal div.modal-body {
+    background-color: rgba(236, 236, 236, 0.7);
+    color: black;
+}
+
+#ReqModal div p:first-child {
+    display: inline-block;
+}
+
+.form-horizontal .control-label {
+    text-align: right;
+}
+
+#btnAddReq {
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #F44336;
+    width: 48px;
+    height: 48px;
+    outline: none;
+    display: block;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 1.8em;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    transition: all .3s ease-out;
+    padding-bottom: 5px;
+    position: absolute;
+    margin-right: 6%;
+    margin-top: -2%;
+}
+
+#btnAddReq:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.startAsHidden {
+    display: none;
+}
+
+.reqList:hover {
+    background: rgba(153, 204, 255, 0.3);
+    border-radius: 2px;
+    cursor: pointer;
+}
+#ReqModal p {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#ReqModal span {
+    font-size: 1.2em;
+}
+
+
+#change-more-data > div {
+    border-radius: 7px;
+}
+
+#change-more-data div:not(.current-view):hover {
+    background: rgba(226, 226, 226, 0.47);
+}
+#ReqModal #reqbtnClose {
+    display: none;
+}

@@ -1,0 +1,33 @@
+.body {
+  margin: 0;
+  size: 150%;
+  overflow-y: scroll;
+}
+
+.daddy {
+  position: absolute;
+  background: rgb(151, 205, 233);
+  size: 100%;
+  font-family: 'Brush Script MT', cursive;
+  align-items: center;
+  top: 100vw;
+}
+
+.son1 {
+  position: fixed;
+  top: 0;
+  margin: 1vh;
+  background: rgb(134, 134, 134);
+}
+
+.son2 {
+  position: relative;
+  margin: 1vh;
+  background: rgb(65, 64, 64);
+}
+
+.son3 {
+  position: relative;
+  margin: 1vh;
+  background: rgb(46, 46, 46);
+}

@@ -1,0 +1,6 @@
+INSERT INTO T_PEOPLE VALUES (1, 'Adi', 'Cohen Kadosh');
+INSERT INTO T_PEOPLE VALUES (2, 'Naama', 'Angel');
+INSERT INTO T_PEOPLE VALUES (3, 'Itamar', 'Smirra');
+INSERT INTO T_PEOPLE VALUES (4, 'Almog', 'Sdeor');
+
+COMMIT;
